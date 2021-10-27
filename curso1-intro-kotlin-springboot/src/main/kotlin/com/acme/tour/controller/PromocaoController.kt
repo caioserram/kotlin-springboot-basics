@@ -2,17 +2,14 @@ package com.acme.tour.controller
 
 import com.acme.tour.model.Promocao
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.util.concurrent.ConcurrentHashMap
 
 @RestController
 class PromocaoController {
 
     @Autowired
-    lateinit var initialPromocoes: ConcurrentHashMap<Long, Promocao>
+    lateinit var promocoes: ConcurrentHashMap<Long, Promocao>
 
     @RequestMapping(value=["/sayHello"], method = [RequestMethod.GET])
     fun sayHello(): String {
@@ -20,5 +17,10 @@ class PromocaoController {
     }
 
     @RequestMapping(value = ["/promocoes/{id}"], method = [RequestMethod.GET])
-    fun getById(@PathVariable id: Long) = this.initialPromocoes[id]
+    fun getById(@PathVariable id: Long) = this.promocoes[id]
+
+    @RequestMapping(value = ["/promocoes"], method = [RequestMethod.POST])
+    fun create(@RequestBody promocao: Promocao) {
+        this.promocoes[promocao.id] = promocao
+    }
 }
