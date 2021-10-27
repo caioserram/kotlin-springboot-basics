@@ -27,9 +27,11 @@ class PromocaoController {
         return ResponseEntity(promocao,status)
     }
 
+    // Unit é o objeto vazio
     @PostMapping()
-    fun create(@RequestBody promocao: Promocao) {
+    fun create(@RequestBody promocao: Promocao): ResponseEntity<Unit>  {
         this.promocaoService.create(promocao)
+        return ResponseEntity(HttpStatus.CREATED)
     }
 
     @DeleteMapping("/{id}")
