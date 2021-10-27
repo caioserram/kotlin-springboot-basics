@@ -20,5 +20,5 @@ class PromocaoController {
     }
 
     @RequestMapping(value = ["/promocoes/{id}"], method = [RequestMethod.GET])
-    fun getPromocao(@PathVariable id: Long) = this.initialPromocoes[id]
+    fun getById(@PathVariable id: Long) = this.initialPromocoes[id]
 }
