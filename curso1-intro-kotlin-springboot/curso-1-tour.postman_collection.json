@@ -98,7 +98,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Delete Promocao",
 			"request": {
 				"method": "DELETE",
 				"header": [],
