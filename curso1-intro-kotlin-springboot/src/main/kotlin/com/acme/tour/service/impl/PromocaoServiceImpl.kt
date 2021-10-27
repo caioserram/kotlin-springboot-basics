@@ -2,9 +2,10 @@ package com.acme.tour.service.impl
 
 import com.acme.tour.model.Promocao
 import com.acme.tour.service.PromocaoService
-import org.springframework.context.annotation.Bean
+import org.springframework.stereotype.Component
 import java.util.concurrent.ConcurrentHashMap
 
+@Component
 class PromocaoServiceImpl:PromocaoService {
 
     companion object {
