@@ -6,36 +6,32 @@ import org.springframework.web.bind.annotation.*
 import java.util.concurrent.ConcurrentHashMap
 
 @RestController
+@RequestMapping(value=["/promocoes"])
 class PromocaoController {
 
     @Autowired
     lateinit var promocoes: ConcurrentHashMap<Long, Promocao>
 
-    @RequestMapping(value=["/sayHello"], method = [RequestMethod.GET])
-    fun sayHello(): String {
-        return "Hello World"
-    }
-
-    @RequestMapping(value = ["/promocoes"], method = [RequestMethod.GET])
+    @GetMapping()
     fun getAll(@RequestParam(required = false ,defaultValue = "") local: String) =
         this.promocoes
             .filter { it.value.local.contains(local,true) }
             .map(Map.Entry<Long,Promocao>::value).toList() // retorna apenas o valor contigo no map para ser convertido em lista
 
-    @RequestMapping(value = ["/promocoes/{id}"], method = [RequestMethod.GET])
+    @GetMapping("/{id}")
     fun getById(@PathVariable id: Long) = this.promocoes[id]
 
-    @RequestMapping(value = ["/promocoes"], method = [RequestMethod.POST])
+    @PostMapping()
     fun create(@RequestBody promocao: Promocao) {
         this.promocoes[promocao.id] = promocao
     }
 
-    @RequestMapping(value=["/promocoes/{id}"], method = [RequestMethod.DELETE])
+    @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long) {
         this.promocoes.remove(id)
     }
 
-    @RequestMapping(value=["/promocoes/{id}"], method = [RequestMethod.PUT])
+    @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @RequestBody promocao: Promocao) {
         this.promocoes.remove(id)
         this.promocoes[id] = promocao
