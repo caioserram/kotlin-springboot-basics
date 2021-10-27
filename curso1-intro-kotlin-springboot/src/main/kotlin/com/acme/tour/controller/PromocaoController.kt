@@ -17,7 +17,10 @@ class PromocaoController {
     }
 
     @RequestMapping(value = ["/promocoes"], method = [RequestMethod.GET])
-    fun getAll() = this.promocoes.entries
+    fun getAll(@RequestParam(required = false ,defaultValue = "") local: String) =
+        this.promocoes
+            .filter { it.value.local.contains(local,true) }
+            .map(Map.Entry<Long,Promocao>::value).toList() // retorna apenas o valor contigo no map para ser convertido em lista
 
     @RequestMapping(value = ["/promocoes/{id}"], method = [RequestMethod.GET])
     fun getById(@PathVariable id: Long) = this.promocoes[id]
