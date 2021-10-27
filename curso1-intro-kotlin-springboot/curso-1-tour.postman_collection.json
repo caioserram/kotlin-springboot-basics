@@ -30,14 +30,20 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{host}}:{{port}}/promocoes/5",
+					"raw": "{{host}}:{{port}}/promocoes",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}",
 					"path": [
-						"promocoes",
-						"5"
+						"promocoes"
+					],
+					"query": [
+						{
+							"key": "localFilter",
+							"value": "cancun",
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -77,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":5,\r\n    \"descricao\":\"Viagem de natal\",\r\n    \"local\":\"Campos do Jordão\",\r\n    \"isAllInclusive\":false,\r\n    \"qtdDias\":3,\r\n    \"preco\": 500\r\n}",
+					"raw": "{\r\n    \"id\":5,\r\n    \"descricao\":\"Viagem de natal\",\r\n    \"local\":\"Campos do Jordão\",\r\n    \"isAllInclusive\":false,\r\n    \"qtdDias\":3,\r\n    \"preco\": 800\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -85,13 +91,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{host}}:{{port}}/promocoes",
+					"raw": "{{host}}:{{port}}/promocoes/5",
 					"host": [
 						"{{host}}"
 					],
 					"port": "{{port}}",
 					"path": [
-						"promocoes"
+						"promocoes",
+						"5"
 					]
 				}
 			},
