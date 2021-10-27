@@ -28,4 +28,10 @@ class PromocaoController {
     fun delete(@PathVariable id: Long) {
         this.promocoes.remove(id)
     }
+
+    @RequestMapping(value=["/promocoes/{id}"], method = [RequestMethod.PUT])
+    fun update(@PathVariable id: Long, @RequestBody promocao: Promocao) {
+        this.promocoes.remove(id)
+        this.promocoes[id] = promocao
+    }
 }

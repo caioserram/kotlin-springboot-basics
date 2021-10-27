@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/promocoes/1",
+					"raw": "{{host}}:{{port}}/promocoes/5",
 					"host": [
-						"localhost"
+						"{{host}}"
 					],
-					"port": "8080",
+					"port": "{{port}}",
 					"path": [
 						"promocoes",
-						"1"
+						"5"
 					]
 				}
 			},
@@ -28,6 +28,33 @@
 			"name": "Criar Promocao",
 			"request": {
 				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":5,\r\n    \"descricao\":\"Viagem de natal\",\r\n    \"local\":\"Campos do Jordão\",\r\n    \"isAllInclusive\":false,\r\n    \"qtdDias\":3,\r\n    \"preco\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}:{{port}}/promocoes",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"promocoes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Promocao",
+			"request": {
+				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
