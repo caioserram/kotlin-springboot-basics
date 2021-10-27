@@ -25,6 +25,25 @@
 			"response": []
 		},
 		{
+			"name": "Get Promocoes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}:{{port}}/promocoes/5",
+					"host": [
+						"{{host}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"promocoes",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Criar Promocao",
 			"request": {
 				"method": "POST",

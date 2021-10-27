@@ -16,6 +16,9 @@ class PromocaoController {
         return "Hello World"
     }
 
+    @RequestMapping(value = ["/promocoes"], method = [RequestMethod.GET])
+    fun getAll() = this.promocoes.entries
+
     @RequestMapping(value = ["/promocoes/{id}"], method = [RequestMethod.GET])
     fun getById(@PathVariable id: Long) = this.promocoes[id]
 
