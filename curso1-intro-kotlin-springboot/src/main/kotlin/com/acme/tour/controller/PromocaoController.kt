@@ -2,12 +2,10 @@ package com.acme.tour.controller
 
 import com.acme.tour.model.Promocao
 import com.acme.tour.service.PromocaoService
-import org.apache.coyote.Response
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import java.util.concurrent.ConcurrentHashMap
 
 @RestController
 @RequestMapping(value=["/promocoes"])
