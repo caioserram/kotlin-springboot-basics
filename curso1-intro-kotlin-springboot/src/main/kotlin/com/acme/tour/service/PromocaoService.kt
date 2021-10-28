@@ -9,5 +9,6 @@ interface PromocaoService {
     fun delete(id:Long )
     fun searchByLocal(local: String): List<Promocao>
     fun getAll(start: Int, size: Int): List<Promocao>
+    fun getAllSortByLocal(): List<Promocao>
     fun count(): Long
 }
