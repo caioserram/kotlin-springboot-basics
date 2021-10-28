@@ -15,9 +15,10 @@ class PromocaoController {
     lateinit var promocaoService: PromocaoService
 
     @GetMapping()
-    fun getAll(@RequestParam(required = false ,defaultValue = "") localFilter: String): ResponseEntity<List<Promocao>> {
+    fun getAll(@RequestParam(required = false ,defaultValue = "0") start: Int,
+               @RequestParam(required = false ,defaultValue = "3") size: Int): ResponseEntity<List<Promocao>> {
         var status = HttpStatus.OK
-        val listaPromocoes = this.promocaoService.getAll()
+        val listaPromocoes = this.promocaoService.getAll(start,size)
 
         if (listaPromocoes.isEmpty()){
             status = HttpStatus.NOT_FOUND
@@ -25,6 +26,7 @@ class PromocaoController {
 
         return ResponseEntity(listaPromocoes, status)
     }
+
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long): ResponseEntity<Promocao?> {
         val promocao = this.promocaoService.getById(id)
