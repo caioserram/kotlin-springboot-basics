@@ -17,7 +17,7 @@ class PromocaoController {
     @GetMapping()
     fun getAll(@RequestParam(required = false ,defaultValue = "") localFilter: String): ResponseEntity<List<Promocao>> {
         var status = HttpStatus.OK
-        val listaPromocoes = this.promocaoService.searchByLocal(localFilter)
+        val listaPromocoes = this.promocaoService.getAll()
 
         if (listaPromocoes.isEmpty()){
             status = HttpStatus.NOT_FOUND
@@ -60,4 +60,7 @@ class PromocaoController {
         }
         return ResponseEntity(Unit,status)
     }
+
+    @GetMapping("/count")
+    fun count() = ResponseEntity.ok().body(mapOf("count" to this.promocaoService.count()))
 }
