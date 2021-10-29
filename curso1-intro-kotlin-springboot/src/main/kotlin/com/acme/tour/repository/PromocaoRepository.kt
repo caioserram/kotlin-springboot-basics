@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository
 @Repository
 interface PromocaoRepository: PagingAndSortingRepository<Promocao, Long> {
 
-    @Query("select p from Promocao p where p.preco <= 9000")
+    @Query("select * from promocao p where p.preco <= 9000", nativeQuery = true)
     fun getPrecoMenorQue9000(): List<Promocao>
 }
