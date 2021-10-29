@@ -4,8 +4,11 @@ spring:
     url: jdbc:mysql://localhost:3306/tour
     username: root
     password: root
+    # INICIALIZACAO inicializa o banco utilizando o arquivo data.sql
+    initialization-mode: always
   jpa:
     show-sql: true # CUIDADO, PODE SOBRECARREGAR O SERVIDOR!!!
     hibernate:
       ddl-auto: create-drop # CUIDADO, PODE APAGAR DADOS EM PRODUÇÃO!!!
     generate-ddl: true
+    defer-datasource-initialization: true
