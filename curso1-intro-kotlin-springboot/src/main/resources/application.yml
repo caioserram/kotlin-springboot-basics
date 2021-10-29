@@ -9,6 +9,6 @@ spring:
   jpa:
     show-sql: true # CUIDADO, PODE SOBRECARREGAR O SERVIDOR!!!
     hibernate:
-      ddl-auto: create-drop # CUIDADO, PODE APAGAR DADOS EM PRODU«√O!!!
+      ddl-auto: create-drop # CUIDADO, PODE APAGAR DADOS EM PRODU√á√ÉO!!!
     generate-ddl: true
     defer-datasource-initialization: true
