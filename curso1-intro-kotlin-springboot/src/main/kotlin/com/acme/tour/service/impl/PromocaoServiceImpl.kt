@@ -46,4 +46,6 @@ class PromocaoServiceImpl(
     }
 
     override fun count(): Long = this.promocaoRepository.count()
+
+    override fun findAllPrecoMenorQue9000(): List<Promocao> = this.promocaoRepository.getPrecoMenorQue9000()
 }

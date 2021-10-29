@@ -68,4 +68,7 @@ class PromocaoController {
 
     @GetMapping("/ordenado")
     fun getAllSortedByLocal() = this.promocaoService.getAllSortByLocal()
+
+    @GetMapping("/precoMenorQue9000")
+    fun getPromocaoMenorQue9000() = this.promocaoService.findAllPrecoMenorQue9000()
 }
